@@ -1,12 +1,24 @@
 package fgi.com.dpoint;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceView;
+import android.view.View;
 
 
 public class MainActivity extends Activity {
+
+    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1337;
+
+    public void CameraButton(View v) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // start the image capture intent
+        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
